@@ -1,0 +1,59 @@
+<html>
+    <body><center>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h1 style="color: burlywood;;">Calculator</h1>
+        <h1 id="Answer" style="color: yellowgreen;"></h1>
+        <h3>Kindly <b style="color:red">DONOT</b> fill below fields with character!</h3>
+        <p>Value 1</p>
+        <input type="text" id="N1"> <p style="color: red;" id="error1"></p>
+        
+        <p>Value 2</p>
+        <input type="text" id="N2"> <p style="color: red;" id="error2"></p>
+        <br>
+        <br>
+        <select id="opt" >
+            <option value="add">Add</option>
+            <option value="sub">Sub</option>
+            <option value="mul">Mul</option>
+            <option value="div">Div</option>
+            <option value="mod">Mod</option>
+        </select>
+        <br> <br>
+        <button onclick="sol();">Calculate</button>
+    </center>
+        <script>
+             function sol(){
+                 var val1=document.getElementById("N1").value;
+                 if (isNaN(val1)){ alert("Wrong Input");
+                    document.getElementById("error1").innerHTML="Please Enter Numeric Value Only!";
+                    }
+                 var val2=document.getElementById("N2").value;
+                 if (isNaN(val2)){ alert("Wrong Input");
+                    document.getElementById("error2").innerHTML="Please Enter Numeric Value Only!";
+                    }
+                 var result=0;
+                 var selectedValue= document.getElementById("opt").value;
+                 switch(selectedValue){
+                     case 'add': result=parseFloat(val1)+parseFloat(val2);
+                     if(!isNaN(result)){document.getElementById("Answer").innerHTML=result;}
+                     break;
+                     case 'sub': result=parseFloat(val1)-parseFloat(val2);
+                     if(!isNaN(result)){document.getElementById("Answer").innerHTML=result;}
+                     break;
+                     case 'mul': result=parseFloat(val1)*parseFloat(val2);
+                     if(!isNaN(result)){document.getElementById("Answer").innerHTML=result;}
+                     break;
+                     case 'div': result=parseFloat(val1)/parseFloat(val2);
+                     if(!isNaN(result)){document.getElementById("Answer").innerHTML=result;}
+                     break;
+                     case 'mod': result=parseFloat(val1)%parseFloat(val2);
+                     if(!isNaN(result)){document.getElementById("Answer").innerHTML=result;}
+                     break;
+                 }
+             }
+        </script>
+    </body>
+</html>
